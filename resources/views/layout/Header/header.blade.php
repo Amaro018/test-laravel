@@ -19,17 +19,38 @@
                     <i class='bx bx-search text-4xl'></i>
                 </div>
             </div>
-
-            <div class="flex justify-between items-center bg-[#F4A100] p-1 px-16 border border-gray-300">
+            <hr>
+            <div class="flex justify-between items-center bg-[#F4A100] p-1 px-16">
                
                 <div class="flex justify-center align-bottom">
                     <h2 class=" text-white font-bold text-xl">All Products</h2><i class='bx bx-chevron-down text text-xl text-white'></i>
                 </div>
 
                 <div class="flex items-center">
-                <i class='bx bxs-cart text-5xl'></i><i class='bx bxs-user-circle text-5xl m-0'></i><i class='bx bx-chevron-down text-4xl ml-0'></i> 
+                <i class='bx bxs-cart text-5xl'></i>
+                <i class='bx bxs-user-circle text-5xl m-0'></i>
+                
+                
+                <i class='bx bx-chevron-down text-4xl ml-0'></i> 
                 </div>
             </div>
     </div>
 </header>
+<body>
+{{-- 
+@foreach ($user as $user)
+<h1 class="text-7xl">{{ $user['name'] }}</h1>
+<h1 class="text-7xl">{{ $user['age'] }}</h1>
+@if($user['age'] < 21)
+    <p>Too young to have s*x</p>
+@endif
+<hr>
+
+@endforeach --}}
+
+<div>
+    @yield('content')
+
+</div>
+</body>
 </html>

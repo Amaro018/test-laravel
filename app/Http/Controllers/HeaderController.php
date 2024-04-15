@@ -8,6 +8,18 @@ class HeaderController extends Controller
 {
         public function showHeader()
     {
-        return view('Header.header'); // Make sure you have a view file named header.blade.php
+        $users = [
+            [
+            'name' => "jhomari amaro",
+            'age' => 20
+        ],
+        [
+            'name' => "shiela amaro",
+            'age' => 30
+        ]
+        ];
+        return view('layout.Header.header',[
+            'user' => $users
+        ]);
     }
 }
