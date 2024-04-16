@@ -13,7 +13,7 @@
             @csrf
             <div class="container flex justify-center ">
                 <div>
-                    <textarea type="text" class="w-96 border border-black h-60 rounded-md" rows="3"></textarea>
+                    <textarea name="share-content" type="text" class="w-96 border border-black h-60 rounded-md" rows="3"></textarea>
                 </div>
             </div>
             <div class="container flex justify-center">

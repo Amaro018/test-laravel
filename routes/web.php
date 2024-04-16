@@ -13,7 +13,7 @@ Route::get('/register', function () {
     return view('pages.userPages.Registration.register');
 });
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index'])->name('homepage');
 Route::post('/share', [ShareController::class, 'store'])->name('share.create');
 
 
