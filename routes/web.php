@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShareController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\DashboardController;
@@ -13,4 +14,7 @@ Route::get('/register', function () {
 });
 
 Route::get('/', [DashboardController::class, 'index']);
+Route::post('/share', [ShareController::class, 'store'])->name('share.create');
+
+
 Route::get('header', [HeaderController::class, 'showHeader']);

@@ -1,27 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css">
-    <title>Header</title>
-    @vite('resources/css/app.css')
-</head>
 <header>
     <div class="w-full mx-0">
-        <div class="bg-[#A46F07] px-16 flex justify-end gap-4">
-            <h1>Sign In</h1>
-            <h1>Create Account</h1>
+        <div class="bg-[#388087] px-16 flex justify-end gap-4 py-1">
+            <div class="border-r-2  border-white px-4">
+                <h1 class="font-bold text-white">Create Account</h1>
+            </div>
+            <div>
+                <h1 class="font-bold text-white">Sign In</h1>
+            </div>
         </div>
-        <div class="bg-[#F4A100] p-4 px-16 flex flex-row justify-between items-center">
+        
+        {{-- logo --}}
+        <div class="bg-[#6FB3B8] p-4 px-16 flex flex-row justify-between items-center">
             <div>
                 <h1 class="font-sans text-4xl font-extrabold">.Subli</h1>
             </div>
-            <div class="flex gap-4">
+            {{-- search bar --}}
+            <div class="container flex flex-row justify-center items-center">
                 <input type="text" placeholder="Search Product ..."
-                    class="p-2 rounded-md w-64 text-xl drop-shadow-lg">
-                <i class='bx bx-search text-4xl'></i>
+                    class="p-2 rounded-l-md w-3/6 text-md drop-shadow-lg">
+                <i class='bx bx-search text-4xl rounded-r-md bg-white'></i>
+            </div>
+            {{-- cart and help --}}
+            <div class="flex flex-row gap-4">
+                <div class="flex flex-row items-center">
+                    <i class='bx bx-help-circle text-4xl'></i><h1>Help</h1>
+                </div>
+                <div>
+                    <i class='bx bxs-cart text-4xl'></i>
+                </div>
             </div>
         </div>
         <hr>
