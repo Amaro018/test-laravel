@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Idea;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class DashboardController extends Controller
         // dump(Idea::all());
 
         // return view("welcome", ['ideas' => Idea::all()]);
-        return view("welcome", ['ideas' => Idea::OrderBy('created_at', 'DESC')->get()]);
+        return view("welcome", ['ideas' => Idea::OrderBy('created_at', 'DESC')->paginate(4)]);
     }
 
 }

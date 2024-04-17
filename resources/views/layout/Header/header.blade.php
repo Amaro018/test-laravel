@@ -1,19 +1,16 @@
-
 <header>
     <div class="w-full mx-0">
-        <div class="bg-[#388087] px-16 flex justify-end gap-4 py-1">
-            <div class="border-r-2  border-white px-4">
-                <h1 class="font-bold text-white">Create Account</h1>
-            </div>
-            <div>
-                <h1 class="font-bold text-white">Sign In</h1>
-            </div>
-        </div>
-        
+        {{-- authentication of user --}}
+        {{-- @if () --}}
+        @include('layout.Header.Navigation.guest-nav')
+        {{-- @endif --}}
+
         {{-- logo --}}
         <div class="bg-[#6FB3B8] p-4 px-16 flex flex-row justify-between items-center">
             <div>
-                <h1 class="font-sans text-4xl font-extrabold">.Subli</h1>
+                <a href="{{route('homepage')}}">
+                    <h1 class="font-sans text-4xl font-extrabold">.Subli</h1>
+                </a>
             </div>
             {{-- search bar --}}
             <div class="container flex flex-row justify-center items-center">
@@ -24,7 +21,8 @@
             {{-- cart and help --}}
             <div class="flex flex-row gap-4">
                 <div class="flex flex-row items-center">
-                    <i class='bx bx-help-circle text-4xl'></i><h1>Help</h1>
+                    <i class='bx bx-help-circle text-4xl'></i>
+                    <h1>Help</h1>
                 </div>
                 <div>
                     <i class='bx bxs-cart text-4xl'></i>
@@ -32,7 +30,8 @@
             </div>
         </div>
         <hr>
-        <div class="flex justify-between items-center bg-[#F4A100] p-1 px-16">
+
+        {{-- <div class="flex justify-between items-center bg-[#F4A100] p-1 px-16">
 
             <div class="flex justify-center align-bottom">
                 <h2 class=" text-white font-bold text-xl">All Products</h2><i
@@ -46,7 +45,7 @@
 
                 <i class='bx bx-chevron-down text-4xl ml-0'></i>
             </div>
-        </div>
+        </div> --}}
     </div>
 </header>
 
