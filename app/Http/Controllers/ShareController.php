@@ -38,7 +38,8 @@ class ShareController extends Controller
 
     public function show(Idea $idea)
     {
-        return view('showSharedpost', [
+
+        return view('shared.showSharedpost', [
             'idea' => $idea,
         ]);
     }
@@ -47,7 +48,7 @@ class ShareController extends Controller
     {
         $editing = true;
 
-        return view('editSharedpost', compact('idea', 'editing'));
+        return view('shared.editSharedpost', compact('idea', 'editing'));
     }
 
     public function update(Idea $idea)
@@ -61,7 +62,7 @@ class ShareController extends Controller
         $idea->save();
 
 
-        return redirect()->route('showSharedpost.show', $idea->id)->with('success', 'edit successfully');
+        return redirect()->route('shared.showSharedpost.show', $idea->id)->with('success', 'edit successfully');
 
     }
 

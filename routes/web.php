@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\HomeController;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\DashboardController;
@@ -29,3 +32,13 @@ Route::get('shares/{idea}', [ShareController::class, 'show'])->name('showSharedp
 Route::get('shares/{idea}/edit', [ShareController::class, 'edit'])->name('editSharedpost.edit');
 
 Route::put('shares/{idea}', [ShareController::class, 'update'])->name('shares.update');
+
+// for the comments
+Route::post('shares/{idea}/comments', [CommentController::class, 'store'])->name('shares.comments.store');
+
+
+
+
+
+//down here will be my new home page
+Route::get('home', [HomeController::class, 'index'])->name('home.show');
