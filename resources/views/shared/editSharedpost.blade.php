@@ -5,18 +5,18 @@
             <div class="container bg-white h-auto w-96 border border-black p-2">
 
                 <div class="flex flex-row justify-between">
-                    <h1 class="font-bold">JUN</h1>
+                    <h1 class="font-bold">{{ $idea->user->name }}</h1>
                     <div class="flex flex-row gap-4">
 
                         {{-- to edit button --}}
 
-                        <a href="{{ route('editSharedpost.edit', $idea->id) }}">
+                        <a href="{{ route('shares.edit', $idea->id) }}">
                             <button
                                 class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">EDIT</button>
                         </a>
 
                         {{-- to view the single share button --}}
-                        <a href="{{ route('showSharedpost.show', $idea->id) }}">
+                        <a href="{{ route('shares.show', $idea->id) }}">
                             <button
                                 class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">VIEW</button>
                         </a>

@@ -1,7 +1,6 @@
 <div class="w-full mx-0">
     <div class="bg-[#388087] px-16 flex justify-end gap-4 py-1">
         @guest
-
             <div class="border-r-2  border-white px-4">
                 <a href="{{ route('register') }}">
                     <h1 class="font-bold text-white">Create Account</h1>
@@ -14,12 +13,9 @@
                 </a>
             </div>
         @endguest
+
         @auth
-            {{-- <div>
-                <a href="">{{ Auth::user()->username }}
-                </a>
-            </div> --}}
-            <nav class="bg-gray-800 p-4 text-white">
+            <nav class=" text-white">
                 <div class="container mx-auto">
                     <div class="flex items-center justify-between">
                         <div class="text-lg">{{ Auth::user()->username }}</div>
@@ -41,7 +37,7 @@
 
                             <div id="dropdownMenu" class="absolute right-0 w-48 bg-gray-700 mt-2 rounded hidden">
                                 <a href="/profile" class="block px-4 py-2 hover:bg-gray-600">Manage Profile</a>
-                                <a href="/logout" class="block px-4 py-2 hover:bg-gray-600">Log Out</a>
+                                <a href="{{ route('logout') }}" class="block px-4 py-2 hover:bg-gray-600">Log Out</a>
                             </div>
                         </div>
                     </div>
@@ -49,3 +45,4 @@
             </nav>
         @endauth
     </div>
+</div>

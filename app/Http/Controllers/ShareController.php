@@ -15,9 +15,12 @@ class ShareController extends Controller
         // ]);
         // $share->save();
         // dd(request()->all());
+
         $validated = request()->validate([
             'content' => 'required|min:5|max:200',
         ]);
+
+        $validated['user_id'] = auth()->user()->id;
 
         Idea::create($validated);
 
@@ -28,6 +31,9 @@ class ShareController extends Controller
 
     public function destroy(Idea $idea)
     {
+        if (auth()->user()->id != $idea->user_id) {
+            abort(404, 'id not equal');
+        }
         $idea->delete();
 
 
@@ -44,6 +50,9 @@ class ShareController extends Controller
 
     public function edit(Idea $idea)
     {
+        if (auth()->user()->id != $idea->user_id) {
+            abort(404, 'id not equal');
+        }
         $editing = true;
 
         return view('shared.editSharedpost', compact('idea', 'editing'));
@@ -58,7 +67,10 @@ class ShareController extends Controller
 
         // $idea->update($validated);
 
-        // we can also use it like this
+        // we can also use it like 
+        if (auth()->user()->id != $idea->user_id) {
+            abort(404, 'id not equal');
+        }
         request()->validate([
             'share-content' => 'required|min:5|max:200',
         ]);

@@ -3,34 +3,33 @@
     <div>
         <div class="flex justify-center mt-5">
             <div class="container bg-white h-auto w-96 border border-black p-2">
+                <div class="flex flex-row justify-between items-center">
+                    <div class="flex flex-row items-center gap-2">
+                        <img class="w-20" src="https://api.dicebear.com/8.x/adventurer/svg?seed={{ $idea->user->name }}"
+                            alt="{{ $idea->user->name }}" />
+                        <h1 class="font-bold">
+                            {{ $idea->user->name }}
+                        </h1>
+                    </div>
 
-                <div class="flex flex-row justify-between">
-                    <h1 class="font-bold">JUN</h1>
                     <div class="flex flex-row gap-4">
-
-
-                        <a href="{{ route('editSharedpost.edit', $idea->id) }}">
+                        <a href="{{ route('shares.edit', $idea->id) }}">
                             <button
-                                class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">EDIT</button>
+                                class="bg-blue-500 hover:bg-blue-400 text-white font-bold px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded">EDIT</button>
+                        </a>
+                        <a href="{{ route('shares.show', $idea->id) }}">
+                            <button
+                                class="bg-blue-500 hover:bg-blue-400 text-white font-bold px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded">VIEW</button>
                         </a>
 
-
-                        {{-- to view the single share --}}
-                        <a href="{{ route('showSharedpost.show', $idea->id) }}">
-                            <button
-                                class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">VIEW</button>
-                        </a>
-
-                        {{-- to delete a share post --}}
                         <form action="{{ route('shares.destroy', $idea->id) }}" method="POST">
                             @csrf
                             @method('delete')
                             <button
-                                class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
+                                class="bg-red-500 hover:bg-red-400 text-white font-bold px-2 border-b-4 border-red-700 hover:border-red-500 rounded">
                                 x
                             </button>
                         </form>
-
                     </div>
                 </div>
 
