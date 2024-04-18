@@ -10,7 +10,6 @@ class Idea extends Model
     use HasFactory;
     protected $fillable = [
         'content',
-        'like'
     ];
 
     public function comments()

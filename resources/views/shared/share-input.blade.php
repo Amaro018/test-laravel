@@ -2,8 +2,8 @@
     @csrf
     <div class="container flex justify-center">
         <div class="flex flex-col">
-            <textarea name="share-content" type="text" class="resize-none w-96  h-24 border border-black rounded-md" rows="3"></textarea>
-            @error('share-content')
+            <textarea name="content" type="text" class="resize-none w-96  h-24 border border-black rounded-md" rows="3"></textarea>
+            @error('content')
                 <span class="text-xs text-red-600">{{ $message }}</span>
             @enderror
         </div>

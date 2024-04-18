@@ -9,20 +9,18 @@ class ShareController extends Controller
 {
     public function store()
     {
+        // this is the longest way to define it
         // $share = new Idea([
         //     'content'=>request()->get('share-content',''),
         // ]);
         // $share->save();
-
-        request()->validate([
-            'share-content' => 'required|min:5|max:200',
+        // dd(request()->all());
+        $validated = request()->validate([
+            'content' => 'required|min:5|max:200',
         ]);
 
-        $share = Idea::create(
-            [
-                'content' => request()->get('share-content', ''),
-            ]
-        );
+        Idea::create($validated);
+
 
         return redirect()->route('homepage')->with('success', 'shared successfully');
 
@@ -54,6 +52,13 @@ class ShareController extends Controller
     public function update(Idea $idea)
     {
 
+        // $validated = request()->validate([
+        //     'content' => 'required|min:5|max:200',
+        // ]);
+
+        // $idea->update($validated);
+
+        // we can also use it like this
         request()->validate([
             'share-content' => 'required|min:5|max:200',
         ]);
@@ -62,7 +67,7 @@ class ShareController extends Controller
         $idea->save();
 
 
-        return redirect()->route('shared.showSharedpost.show', $idea->id)->with('success', 'edit successfully');
+        return redirect()->route('homepage', $idea->id)->with('success', 'edit successfully');
 
     }
 

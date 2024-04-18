@@ -20,4 +20,8 @@ class DashboardController extends Controller
         return view("welcome", ['ideas' => Idea::OrderBy('created_at', 'DESC')->paginate(4)]);
     }
 
+    public function show()
+    {
+        return view('Dashboard');
+    }
 }

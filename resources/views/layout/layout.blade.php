@@ -25,6 +25,11 @@
             @include('layout.Footer.footer')
         </footer>
     </div>
+    <script>
+        function showSuccessModal() {
+            document.getElementById('successModal').classList.remove('hidden');
+        }
+    </script>
 </body>
 
 </html>
