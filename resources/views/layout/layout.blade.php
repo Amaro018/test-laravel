@@ -26,8 +26,13 @@
         </footer>
     </div>
     <script>
-        function showSuccessModal() {
-            document.getElementById('successModal').classList.remove('hidden');
+        function toggleDropdown() {
+            var dropdownMenu = document.getElementById('dropdownMenu');
+            if (dropdownMenu.classList.contains('hidden')) {
+                dropdownMenu.classList.remove('hidden');
+            } else {
+                dropdownMenu.classList.add('hidden');
+            }
         }
     </script>
 </body>

@@ -61,7 +61,7 @@ class AuthController extends Controller
 
         if (auth()->attempt($validated)) {
             request()->session()->regenerate();
-            return redirect()->route('Dashboard')->with('success', 'successfully login');
+            return redirect()->route('homepage')->with('success', 'successfully login');
         }
 
         return redirect()->route('login')->withErrors(
@@ -72,15 +72,13 @@ class AuthController extends Controller
         );
 
     }
-    // $validated = request()->validate(
-    //     [
-    //         'name' => ' required|min:3|max:40',
-    //         'username' => 'required|min:3|max:10',
-    //         'email' => 'required|email|unique:users,email',
-    //         'password' => 'required|confirmed|min:3',
-    //     ]
-    // );
 
-    // return redirect()->route("homepage")->with("success", "you successfully created an account");
+    public function logout()
+    {
+        auth()->logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
 
+        return redirect()->route('homepage')->with('success', 'logged out successfully');
+    }
 }
