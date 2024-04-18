@@ -3,9 +3,9 @@
     <div>
         @include('shared.success-message')
         @include('shared.share-input')
-
+        
         @foreach ($ideas as $idea)
-            <div class="flex justify-center mt-5">
+        <div class="flex justify-center mt-5">
                 <div class="container bg-white h-auto w-96 border border-black p-2">
                     <div class="flex flex-row justify-between">
                         <h1 class="font-bold">JUN</h1>

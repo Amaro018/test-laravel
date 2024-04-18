@@ -2,7 +2,7 @@
     <div class="w-full mx-0">
         {{-- authentication of user --}}
         {{-- @if () --}}
-        @include('layout.Header.Navigation.guest-nav')
+        @include('layout.Header.Navigation.navigation')
         {{-- @endif --}}
 
         {{-- logo --}}
