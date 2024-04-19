@@ -1,32 +1,36 @@
-<div>
-
+<div class="container">
     <div class="flex justify-center mt-5">
-        <div class="container bg-white h-auto w-96 border border-black p-2">
+        <div class="container bg-white h-auto w-2/5  border-gray-400 rounded shadow p-4">
             <div class="flex flex-row justify-between items-center">
 
                 <div class="flex flex-row items-center gap-2">
-                    <img class="w-20" src="https://api.dicebear.com/8.x/adventurer/svg?seed={{ $idea->user->name }}"
-                        alt="{{ $idea->user->name }}" />
-                    <h1 class="font-bold">
-                        {{ $idea->user->name }}
-                    </h1>
+                    <a href="{{ route('users.show', $idea->user->id) }}">
+                        <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                            <img class="w-20" src="{{ $idea->user->getImageUrl() }}" alt="try" />
+                        </div>
+                    </a>
+                    <a href="{{ route('users.show', $idea->user->id) }}">
+                        <h1 class="font-bold">
+                            {{ $idea->user->name }}
+                        </h1>
+                    </a>
                 </div>
 
                 <div class="flex flex-row gap-4">
                     <a href="{{ route('shares.edit', $idea->id) }}">
                         <button
-                            class="bg-blue-500 hover:bg-blue-400 text-white font-bold px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded">EDIT</button>
+                            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">EDIT</button>
                     </a>
                     <a href="{{ route('shares.show', $idea->id) }}">
                         <button
-                            class="bg-blue-500 hover:bg-blue-400 text-white font-bold px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded">VIEW</button>
+                            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">VIEW</button>
                     </a>
 
                     <form action="{{ route('shares.destroy', $idea->id) }}" method="POST">
                         @csrf
                         @method('delete')
                         <button
-                            class="bg-red-500 hover:bg-red-400 text-white font-bold px-2 border-b-4 border-red-700 hover:border-red-500 rounded">
+                            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
                             x
                         </button>
                     </form>
@@ -64,7 +68,8 @@
                         class="resize-none w-full  h-12 border border-black rounded-md mt-3"></textarea>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="bg-green-300 border border-black rounded-md p-2 mt-5">POST
+                    <button type="submit"
+                        class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">POST
                         COMMENT</button>
                 </div>
             </form>
@@ -72,10 +77,14 @@
 
             @foreach ($idea->comments as $comment)
                 {{-- name of the commenter --}}
-                <div class="flex justify-between">
-                    <div class="flex flex-row">
-                        <h1>😊</h1>
-                        <h1>{{ $idea->user->name }}</h1>
+                <div class="flex justify-between ">
+                    <div class="flex flex-row items-center gap-2">
+                        <a href="{{ route('users.show', $idea->user->id) }}">
+                            <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                                <img class="w-20" src="{{ $idea->user->getImageUrl() }}" alt="try" />
+                            </div>
+                        </a>
+                        <h1>{{ $comment->user->name }}</h1>
                     </div>
 
                     {{-- time posted the comment --}}

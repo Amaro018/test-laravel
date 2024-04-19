@@ -5,7 +5,6 @@
             {{-- sidebar here --}}
         </div>
         <div>
-            @include('shared.success-message')
             @include('shared.share-input')
         </div>
         @forelse ($ideas as $idea)

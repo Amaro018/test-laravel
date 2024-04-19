@@ -1,23 +1,24 @@
-<div class="container flex justify-center gap-10">
-
+<div class="flex justify-center">
     @auth
-        <form action="{{ route('shares.store') }}" method="POST">
-            @csrf
-
-            <div class="flex flex-col">
-                <textarea name="content" type="text" class="resize-none w-96  h-24 border border-black rounded-md" rows="3"></textarea>
+        <div class="container bg-white h-auto w-2/5  border-gray-400 rounded shadow p-4">
+            <form action="{{ route('shares.store') }}" method="POST">
+                @csrf
+                <textarea name="content" type="text" class="resize-none w-full border border-gray-400 rounded shadow" rows="3"></textarea>
                 @error('content')
                     <span class="text-xs text-red-600">{{ $message }}</span>
                 @enderror
-            </div>
 
 
-            <div class="container flex justify-center">
-                <button type="submit" class="bg-green-300 border border-black rounded-md p-2 mt-5">SHARE IDEAS</button>
-            </div>
-        </form>
-    @endauth
 
+                <div class="container flex justify-center">
+                    <button type="submit"
+                        class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mt-2">SHARE
+                        IDEAS</button>
+                </div>
+            </form>
+        @endauth
+
+    </div>
 </div>
 @guest
     <div class="flex justify-center">

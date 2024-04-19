@@ -7,20 +7,26 @@
 
         {{-- logo --}}
         <div class="bg-[#6FB3B8] p-4 px-16 flex flex-row justify-between items-center">
+            
             <div>
                 <a href="{{route('homepage')}}">
                     <h1 class="font-sans text-4xl font-extrabold">.Subli</h1>
                 </a>
             </div>
-
-            {{-- search bar --}}
-    <form action="{{ route('homepage') }}" method="GET">
-        <div class="container flex flex-row justify-center items-center">
-            <input value="{{ request('search','') }}" name="search" placeholder="Search Product ..."
-            class="p-2 rounded-l-md w-3/6 text-md drop-shadow-lg">
-            <button type="submit"><i class='bx bx-search text-4xl rounded-r-md bg-white'></i></button>
-        </div>
-    </form>
+                
+                {{-- search bar --}}
+                <div class="container w-96 mx-auto px-4">
+                    <form action="{{ route('homepage') }}" method="get" class="">
+                        <div class="flex flex-row items-center">
+                            <input type="text" value="{{ request('search', '') }}" name="search" placeholder="Search Product ..." 
+                                   class="flex-grow py-2 text-md leading-tight rounded-l-md  focus:ring-1 border-2 border-y-white focus:ring-white focus:outline-none">
+                            <button type="submit" class=" bg-white rounded-r-md">
+                                <i class='bx bx-search text-4xl'></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
 
             {{-- cart and help --}}
             <div class="flex flex-row gap-4">
@@ -32,7 +38,7 @@
                     <i class='bx bxs-cart text-4xl'></i>
                 </div>
             </div>
-        </div>
+      
         <hr>
 
         {{-- <div class="flex justify-between items-center bg-[#F4A100] p-1 px-16">

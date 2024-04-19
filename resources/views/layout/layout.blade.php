@@ -4,18 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css">
 
     <title>SUBLI</title>
-    @vite('resources/css/app.css')
 </head>
 
 <body class="bg-[#E9EEF1]">
 
     <header>
         @include('layout.Header.header')
+        @include('shared.success-message')
     </header>
+    <div>
 
+    </div>
 
     <div class="py-4">
         @yield('content')

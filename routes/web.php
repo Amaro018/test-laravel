@@ -9,6 +9,7 @@ use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ShareController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -60,6 +61,6 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
-
-
-
+// THIS IS WHERE THE USER PROFILE CONTROLLER
+Route::resource('users', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
+Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
