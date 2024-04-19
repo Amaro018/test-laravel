@@ -38,6 +38,8 @@ Route::group(['prefix' => 'shares/', 'as' => 'shares.'], function () {
         Route::post('/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
     });
 });
+
+//this is how to group the resource but theres a problem with getting the data from database
 // Route::resource('shares', ShareController::class);
 // Route::resource('shares', ShareController::class)->except(['index', 'create', 'show'])->middleware('auth');
 // Route::resource('shares', ShareController::class)->only('show');

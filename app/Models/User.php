@@ -46,7 +46,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function shares()
+    public function ideas()
     {
         return $this->hasMany(Idea::class);
     }

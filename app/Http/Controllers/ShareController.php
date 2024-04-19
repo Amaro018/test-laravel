@@ -43,8 +43,10 @@ class ShareController extends Controller
     public function show(Idea $idea)
     {
 
+
         return view('shared.showSharedpost', [
             'idea' => $idea,
+
         ]);
     }
 

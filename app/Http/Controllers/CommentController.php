@@ -16,6 +16,6 @@ class CommentController extends Controller
         $comment->comment = request()->get("comment");
         $comment->save();
 
-        return redirect()->route("homepage")->with("success", "Comment successfully");
+        return redirect()->route("homepage", $idea->id)->with("success", "Comment successfully");
     }
 }

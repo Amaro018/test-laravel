@@ -1,4 +1,4 @@
-<header>
+
     <div class="w-full mx-0">
         {{-- authentication of user --}}
         {{-- @if () --}}
@@ -12,12 +12,16 @@
                     <h1 class="font-sans text-4xl font-extrabold">.Subli</h1>
                 </a>
             </div>
+
             {{-- search bar --}}
-            <div class="container flex flex-row justify-center items-center">
-                <input type="text" placeholder="Search Product ..."
-                    class="p-2 rounded-l-md w-3/6 text-md drop-shadow-lg">
-                <i class='bx bx-search text-4xl rounded-r-md bg-white'></i>
-            </div>
+    <form action="{{ route('homepage') }}" method="GET">
+        <div class="container flex flex-row justify-center items-center">
+            <input value="{{ request('search','') }}" name="search" placeholder="Search Product ..."
+            class="p-2 rounded-l-md w-3/6 text-md drop-shadow-lg">
+            <button type="submit"><i class='bx bx-search text-4xl rounded-r-md bg-white'></i></button>
+        </div>
+    </form>
+
             {{-- cart and help --}}
             <div class="flex flex-row gap-4">
                 <div class="flex flex-row items-center">
@@ -47,19 +51,3 @@
             </div>
         </div> --}}
     </div>
-</header>
-
-<body>
-    {{-- 
-@foreach ($user as $user)
-<h1 class="text-7xl">{{ $user['name'] }}</h1>
-<h1 class="text-7xl">{{ $user['age'] }}</h1>
-@if ($user['age'] < 21)
-    <p>Too young to have s*x</p>
-@endif
-<hr>
-
-@endforeach --}}
-</body>
-
-</html>

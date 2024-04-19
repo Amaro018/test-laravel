@@ -10,18 +10,21 @@ class DashboardController extends Controller
 {
     public function index()//show, index, 
     {
-        // $idea = new Idea([
-        //     'content' => 'hello youtube',
+
+        // $ideas = Idea::when(request()->has('search'), function ($query) {
+        //     $query->search(request('search', ''));
+        // })->orderBy('created_at', 'DESC')->paginate(5);
+
+
+        // return view('dashboard', [
+        //     'ideas' => $ideas
         // ]);
-        // $idea->save();
-        // dump(Idea::all());
+        $ideas = Idea::OrderBy('created_at', 'DESC');
 
-        // return view("welcome", ['ideas' => Idea::all()]);
-        return view("welcome", ['ideas' => Idea::OrderBy('created_at', 'DESC')->paginate(4)]);
-    }
+        if (request()->has('search')) {
+            $ideas = $ideas->where('content', 'like', '%' . request()->get('search', '') . '%');
+        }
 
-    public function show()
-    {
-        return view('Dashboard');
+        return view("welcome", ['ideas' => $ideas->paginate(4)]);
     }
 }

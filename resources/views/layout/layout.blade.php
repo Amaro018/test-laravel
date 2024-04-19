@@ -11,21 +11,21 @@
 </head>
 
 <body class="bg-[#E9EEF1]">
-    <div>
-        <header>
-            @include('layout.Header.header')
-        </header>
-    </div>
+
+    <header>
+        @include('layout.Header.header')
+    </header>
+
 
     <div class="py-4">
         @yield('content')
     </div>
 
-    <div>
-        <footer>
-            @include('layout.Footer.footer')
-        </footer>
-    </div>
+
+    <footer>
+        @include('layout.Footer.footer')
+    </footer>
+
     <script>
         function toggleDropdown() {
             var dropdownMenu = document.getElementById('dropdownMenu');
