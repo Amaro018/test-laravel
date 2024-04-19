@@ -77,14 +77,16 @@
 
             @foreach ($idea->comments as $comment)
                 {{-- name of the commenter --}}
-                <div class="flex justify-between ">
+                <div class="flex justify-between py-2">
                     <div class="flex flex-row items-center gap-2">
-                        <a href="{{ route('users.show', $idea->user->id) }}">
+                        <a href="{{ route('users.show', $comment->user->id) }}">
                             <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                                <img class="w-20" src="{{ $idea->user->getImageUrl() }}" alt="try" />
+                                <img class="w-20" src="{{ $comment->user->getImageUrl() }}" alt="try" />
                             </div>
                         </a>
-                        <h1>{{ $comment->user->name }}</h1>
+                        <a href="{{ route('users.show', $comment->user->id) }}">
+                            <h1 class="font-bold">{{ $comment->user->name }}</h1>
+                        </a>
                     </div>
 
                     {{-- time posted the comment --}}

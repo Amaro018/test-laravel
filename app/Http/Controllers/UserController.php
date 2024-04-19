@@ -61,7 +61,7 @@ class UserController extends Controller
             abort(404, 'id not equal');
         }
         $validated = request()->validate([
-            'name' => 'min:5|max:200',
+            'name' => 'min:2|max:200',
             'email' => 'email|unique:users,email',
             'bio' => 'nullable|max:200',
             'image' => 'image',
@@ -71,7 +71,7 @@ class UserController extends Controller
             $imagePath = request()->file('image')->store('profile', 'public');
             $validated['image'] = $imagePath;
 
-            Storage::disk('public')->delete($user->image);
+            // Storage::disk('public')->delete($user->image);
             // dd($validated['image']);
         }
         $user->update($validated);
